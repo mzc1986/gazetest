@@ -13,84 +13,136 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TETCSharpClient;
-using TETCSharpClient.Data;
+using System.Drawing;
+using System.Diagnostics;
+using System.Collections.Specialized;
+
 
 namespace WpfApplication1
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window, IGazeListener
+    public partial class MainWindow : Window
     {
+        private EyeTrackerThread eyeTrackerThread;
+        private FaceTrackerThread faceTrackerThread;
+        private Thread thread1;
+        private Thread thread2;
+
+        //variable for angle calculation
+        private double d0;
+        private double v0;
+        private double angle = -1;
+        private double k;
+        private int i = 0;
+
         public MainWindow()
         {
             InitializeComponent();
 
-            GazePoint();
+            eyeTrackerThread = new EyeTrackerThread();
+            thread1 = new Thread(eyeTrackerThread.Run);
+            //faceTrackerThread = new FaceTrackerThread();
+            //thread2 = new Thread(faceTrackerThread.Run);
+
+            thread1.Start();
+            //thread2.Start();
+            //Thread.Sleep(3000);
+
+            // Create new stopwatch
+            Stopwatch stopwatch = new Stopwatch();
+
+            stopwatch.Start();
+
+            for (double i = 0; i < 500000000; i++ )
+            {
+                //calculateVergence();
+
+                calculateDistane();
+
+                //Console.WriteLine(eyeTrackerThread.Lx);
+                //Console.WriteLine(faceTrackerThread.faceAverageDepth);
+            }
+
+            // Stop timing
+            stopwatch.Stop();
+
+            // Write result
+            Console.WriteLine("Time elapsed: {0}",
+                stopwatch.Elapsed);
+
+            //just printing the distance and associated angles
+            foreach (string myKey in mCollection.AllKeys)
+            {
+                Console.Write(myKey + " ");
+                foreach (string myValue in mCollection.GetValues(myKey))
+                {
+                    Console.Write(myValue + " ");
+                }
+                Console.WriteLine();
+            }
+
+            //foreach (string myKey in mCollection.AllKeys)
+            //  {
+            //    Console.WriteLine(myKey + ": " + mCollection[myKey]);
+            //  }
+
         }
 
-        public void GazePoint()
-     {
-         // Connect client
-         GazeManager.Instance.Activate(GazeManager.ApiVersion.VERSION_1_0, GazeManager.ClientMode.Push);
-        
-         // Register this class for events
-         GazeManager.Instance.AddGazeListener(this);
+        double initAngle = 0;
+        NameValueCollection mCollection = new NameValueCollection();
 
-         Thread.Sleep(5000); // simulate app lifespan (e.g. OnClose/Exit event)
+        double mDepth;
 
-         // Disconnect client
-         GazeManager.Instance.Deactivate();
+        private void calculateDistane()
+        {
+            d0 = Math.Abs(eyeTrackerThread.Lx - eyeTrackerThread.Rx);
 
-     }
+            Thread.Sleep(100);
+            Console.WriteLine(eyeTrackerThread.Lx);
+            Console.WriteLine(eyeTrackerThread.Rx);
+        }
+        private void calculateVergence()
+        {
+                //calculate initial distance
+                d0 = Math.Abs(eyeTrackerThread.Lx - eyeTrackerThread.Rx);
 
-        double d0;
-        double v0;
-        double angle;
-        double Lx;
-        double Rx;
-        int i = 0;
-        double k;
+                //check if the face plane has changed
+                if (faceTrackerThread.isFaceDistanceChanged())
+                {
+                    mDepth = faceTrackerThread.faceAverageDepth;
+                    v0 = (180.0 / Math.PI) * Math.Atan((d0) / mDepth);
 
-     public void OnGazeUpdate(GazeData gazeData)
-     {
-         double gX = gazeData.SmoothedCoordinates.X;
-         double gY = gazeData.SmoothedCoordinates.Y;
+                    Console.WriteLine(mDepth);
 
+                    if(v0 != 0 && d0 != 0)
+                        k = v0 / d0;
+                }
 
-         //getting the distance in pixel
-         double distance = GazeUtils.getDistancePoint2D(gazeData.LeftEye.SmoothedCoordinates, gazeData.RightEye.SmoothedCoordinates);
+                //calculate angle
+                angle = (Math.Abs(eyeTrackerThread.Lx - eyeTrackerThread.Rx) * k);
 
-         Lx = gazeData.LeftEye.SmoothedCoordinates.X *0.26328125; // 0.4013671875; //correction for mm
-         Rx = gazeData.RightEye.SmoothedCoordinates.X *0.26328125; // 0.4013671875; // correction for mm
+                
+                
+            //if angle is changed print that angle for this face plane
+            if(angle!= initAngle)
+            {
+                initAngle = angle;
+                mCollection.Add(mDepth.ToString(), angle.ToString());
+                Console.WriteLine(angle);
+                Console.WriteLine("-----");
+            }
+        }
 
-         //just to set initial angle and distance
-         if (i < 10)
-         {
-             d0 = Math.Abs(Lx - Rx);
-             v0 = (180.0 / Math.PI) * Math.Atan((d0) / 600);
-             k = v0 / d0;
-         }
-         else
-            angle = (Math.Abs(Lx - Rx) * k);
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //new data
+        }
 
-         Console.WriteLine("mm dt = " + string.Format("{0:0.00}", d0) + ", pix dt = " + string.Format("{0:0.00}", distance) + " , angle = " + string.Format("{0:0.00}", angle));
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Console.WriteLine("In close");
+            eyeTrackerThread.Stop();
+            faceTrackerThread.Stop();
+        }
 
-         //Console.WriteLine(gazeData.LeftEye.RawCoordinates.X);
-         //Console.WriteLine(gazeData.LeftEye.SmoothedCoordinates.Y);
-
-         //double avg = (gazeData.LeftEye.SmoothedCoordinates.X + gazeData.RightEye.SmoothedCoordinates.X)/2;
-         //Console.WriteLine("x  " + gX + ",   avg" + avg);
-
-         //Console.WriteLine(string.Format("{0:0.00}",angle));
-         //Console.WriteLine(string.Format("{0:0.00}", d0));
-         //Console.WriteLine(string.Format("{0:0.00}", distance));
-         //Console.WriteLine(gazeData.LeftEye.RawCoordinates.X + " " + gazeData.RightEye.RawCoordinates.X + " distance =" + distance);
-
-         i++;
-
-         // Move point, do hit-testing, log coordinates etc.
-     }
     }
 }

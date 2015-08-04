@@ -21,7 +21,6 @@ C:\Users\mashruf\Documents\Visual Studio 2013\Projects\GazeTest\GazeTest\bin\Deb
 C:\Users\mashruf\Documents\Visual Studio 2013\Projects\GazeTest\GazeTest\bin\Debug\GazeTest.pdb
 C:\Users\mashruf\Documents\Visual Studio 2013\Projects\GazeTest\GazeTest\bin\Debug\Newtonsoft.Json.dll
 C:\Users\mashruf\Documents\Visual Studio 2013\Projects\GazeTest\GazeTest\bin\Debug\TETCSharpClient.dll
-C:\Users\mashruf\Documents\Visual Studio 2013\Projects\GazeTest\GazeTest\obj\Debug\GazeTest.csprojResolveAssemblyReference.cache
 C:\Users\mashruf\Documents\Visual Studio 2013\Projects\GazeTest\GazeTest\obj\Debug\MainWindow.baml
 C:\Users\mashruf\Documents\Visual Studio 2013\Projects\GazeTest\GazeTest\obj\Debug\MainWindow.g.cs
 C:\Users\mashruf\Documents\Visual Studio 2013\Projects\GazeTest\GazeTest\obj\Debug\App.g.cs
@@ -30,3 +29,6 @@ C:\Users\mashruf\Documents\Visual Studio 2013\Projects\GazeTest\GazeTest\obj\Deb
 C:\Users\mashruf\Documents\Visual Studio 2013\Projects\GazeTest\GazeTest\obj\Debug\GazeTest.g.resources
 C:\Users\mashruf\Documents\Visual Studio 2013\Projects\GazeTest\GazeTest\obj\Debug\Gazetest.Properties.Resources.resources
 C:\Users\mashruf\Documents\Visual Studio 2013\Projects\GazeTest\GazeTest\obj\Debug\GazeTest.csproj.GenerateResource.Cache
+C:\Users\mashruf\Documents\Visual Studio 2013\Projects\GazeTest\GazeTest\bin\Debug\libpxccpp2c.dll
+C:\Users\mashruf\Documents\Visual Studio 2013\Projects\GazeTest\GazeTest\bin\Debug\libpxcclr.cs.dll
+C:\Users\mashruf\Documents\Visual Studio 2013\Projects\GazeTest\GazeTest\obj\Debug\GazeTest.csprojResolveAssemblyReference.cache

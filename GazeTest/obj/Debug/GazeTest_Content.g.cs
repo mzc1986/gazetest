@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("libpxcclr.cs.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("libpxccpp2c.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("newtonsoft.json.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("tetcsharpclient.dll")]
 
