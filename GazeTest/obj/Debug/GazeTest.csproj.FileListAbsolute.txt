@@ -32,3 +32,21 @@ C:\Users\mashruf\Documents\Visual Studio 2013\Projects\GazeTest\GazeTest\obj\Deb
 C:\Users\mashruf\Documents\Visual Studio 2013\Projects\GazeTest\GazeTest\bin\Debug\libpxccpp2c.dll
 C:\Users\mashruf\Documents\Visual Studio 2013\Projects\GazeTest\GazeTest\bin\Debug\libpxcclr.cs.dll
 C:\Users\mashruf\Documents\Visual Studio 2013\Projects\GazeTest\GazeTest\obj\Debug\GazeTest.csprojResolveAssemblyReference.cache
+C:\Users\mashrufBGD\Documents\GitHub\gazetest\GazeTest\bin\Debug\GazeTest.exe.config
+C:\Users\mashrufBGD\Documents\GitHub\gazetest\GazeTest\obj\Debug\GazeTest.exe
+C:\Users\mashrufBGD\Documents\GitHub\gazetest\GazeTest\obj\Debug\GazeTest.pdb
+C:\Users\mashrufBGD\Documents\GitHub\gazetest\GazeTest\bin\Debug\GazeTest.exe
+C:\Users\mashrufBGD\Documents\GitHub\gazetest\GazeTest\bin\Debug\GazeTest.pdb
+C:\Users\mashrufBGD\Documents\GitHub\gazetest\GazeTest\bin\Debug\libpxcclr.cs.dll
+C:\Users\mashrufBGD\Documents\GitHub\gazetest\GazeTest\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mashrufBGD\Documents\GitHub\gazetest\GazeTest\bin\Debug\TETCSharpClient.dll
+C:\Users\mashrufBGD\Documents\GitHub\gazetest\GazeTest\obj\Debug\MainWindow.baml
+C:\Users\mashrufBGD\Documents\GitHub\gazetest\GazeTest\obj\Debug\MainWindow.g.cs
+C:\Users\mashrufBGD\Documents\GitHub\gazetest\GazeTest\obj\Debug\App.g.cs
+C:\Users\mashrufBGD\Documents\GitHub\gazetest\GazeTest\obj\Debug\GazeTest_Content.g.cs
+C:\Users\mashrufBGD\Documents\GitHub\gazetest\GazeTest\obj\Debug\GazeTest_MarkupCompile.cache
+C:\Users\mashrufBGD\Documents\GitHub\gazetest\GazeTest\obj\Debug\GazeTest.g.resources
+C:\Users\mashrufBGD\Documents\GitHub\gazetest\GazeTest\obj\Debug\Gazetest.Properties.Resources.resources
+C:\Users\mashrufBGD\Documents\GitHub\gazetest\GazeTest\obj\Debug\GazeTest.csproj.GenerateResource.Cache
+C:\Users\mashrufBGD\Documents\GitHub\gazetest\GazeTest\bin\Debug\libpxccpp2c.dll
+C:\Users\mashrufBGD\Documents\GitHub\gazetest\GazeTest\obj\Debug\GazeTest.csprojResolveAssemblyReference.cache

@@ -38,47 +38,47 @@ namespace WpfApplication1
         {
             InitializeComponent();
 
-            eyeTrackerThread = new EyeTrackerThread();
-            thread1 = new Thread(eyeTrackerThread.Run);
-            //faceTrackerThread = new FaceTrackerThread();
-            //thread2 = new Thread(faceTrackerThread.Run);
+            //eyeTrackerThread = new EyeTrackerThread();
+            //thread1 = new Thread(eyeTrackerThread.Run);
+            faceTrackerThread = new FaceTrackerThread();
+            thread2 = new Thread(faceTrackerThread.Run);
 
-            thread1.Start();
-            //thread2.Start();
-            //Thread.Sleep(3000);
+            //thread1.Start();
+            thread2.Start();
+            Thread.Sleep(10000);
 
-            // Create new stopwatch
-            Stopwatch stopwatch = new Stopwatch();
+            //// Create new stopwatch
+            //Stopwatch stopwatch = new Stopwatch();
 
-            stopwatch.Start();
+            //stopwatch.Start();
 
-            for (double i = 0; i < 500000000; i++ )
-            {
-                //calculateVergence();
+            //for (double i = 0; i < 500000000; i++ )
+            //{
+            //    //calculateVergence();
 
-                calculateDistane();
+            //    calculateDistane();
 
-                //Console.WriteLine(eyeTrackerThread.Lx);
-                //Console.WriteLine(faceTrackerThread.faceAverageDepth);
-            }
+            //    //Console.WriteLine(eyeTrackerThread.Lx);
+            //    //Console.WriteLine(faceTrackerThread.faceAverageDepth);
+            //}
 
-            // Stop timing
-            stopwatch.Stop();
+            //// Stop timing
+            //stopwatch.Stop();
 
-            // Write result
-            Console.WriteLine("Time elapsed: {0}",
-                stopwatch.Elapsed);
+            //// Write result
+            //Console.WriteLine("Time elapsed: {0}",
+            //    stopwatch.Elapsed);
 
-            //just printing the distance and associated angles
-            foreach (string myKey in mCollection.AllKeys)
-            {
-                Console.Write(myKey + " ");
-                foreach (string myValue in mCollection.GetValues(myKey))
-                {
-                    Console.Write(myValue + " ");
-                }
-                Console.WriteLine();
-            }
+            ////just printing the distance and associated angles
+            //foreach (string myKey in mCollection.AllKeys)
+            //{
+            //    Console.Write(myKey + " ");
+            //    foreach (string myValue in mCollection.GetValues(myKey))
+            //    {
+            //        Console.Write(myValue + " ");
+            //    }
+            //    Console.WriteLine();
+            //}
 
             //foreach (string myKey in mCollection.AllKeys)
             //  {

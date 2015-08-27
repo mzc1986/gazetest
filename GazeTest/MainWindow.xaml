@@ -2,8 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525"
-        WindowState="Normal" Closing="Window_Closing">
-    <StackPanel>
+        WindowState="Minimized" Closing="Window_Closing">
+    <StackPanel> 
         <Image x:Name="imgColorStream" />
         <Label x:Name="lblMessage" Content="Label"
                HorizontalAlignment="Center"

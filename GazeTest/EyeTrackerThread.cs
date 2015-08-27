@@ -39,6 +39,7 @@ namespace WpfApplication1
             double gX = gazeData.SmoothedCoordinates.X;
             double gY = gazeData.SmoothedCoordinates.Y;
 
+            Console.WriteLine("ET Gaze points: " + gX + "," + gY);
             //getting the distance in pixel
             distance = GazeUtils.getDistancePoint2D(gazeData.LeftEye.SmoothedCoordinates, gazeData.RightEye.SmoothedCoordinates);
 
